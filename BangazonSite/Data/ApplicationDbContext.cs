@@ -17,5 +17,8 @@ namespace BangazonSite.Data
         public DbSet<ApplicationUser> Users { get; set; }
 
         public DbSet<Product> Products { get; set; }
+
+
+
     }
 }
