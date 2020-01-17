@@ -15,7 +15,11 @@ namespace BangazonSite.Data
         }
 
         public DbSet<ApplicationUser> Users { get; set; }
-
         public DbSet<Product> Products { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<PaymentType> PaymentTypes { get; set; }
+        public DbSet<ProductType> ProductTypes { get; set; }
+        public DbSet<OrderProduct> OrderProducts { get; set; }
+
     }
 }
