@@ -11,7 +11,7 @@ namespace BangazonSite.Models
         public string CardNumber { get; set; }
         public string Name { get; set; }
         public ApplicationUser User { get; set; }
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         public List<Order> Orders { get; set; }
         public DateTime DateCreated { get; set; }
         public bool IsActive { get; set; }
