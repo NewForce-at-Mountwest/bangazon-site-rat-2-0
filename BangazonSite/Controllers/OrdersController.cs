@@ -7,17 +7,27 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BangazonSite.Data;
 using BangazonSite.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace BangazonSite.Controllers
 {
     public class OrdersController : Controller
     {
+        // Private field to store user manager
+        private readonly UserManager<ApplicationUser> _userManager;
+
         private readonly ApplicationDbContext _context;
 
-        public OrdersController(ApplicationDbContext context)
+        // Inject user manager into constructor
+        public OrdersController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
+
+        // Private method to get current user
+        private Task<ApplicationUser> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
+
 
         // GET: Orders
         public async Task<IActionResult> Index()
@@ -25,26 +35,26 @@ namespace BangazonSite.Controllers
             var applicationDbContext = _context.Orders.Include(o => o.PaymentType).Include(o => o.User);
             return View(await applicationDbContext.ToListAsync());
         }
+       
 
         // GET: Orders/Details/5
         public async Task<IActionResult> Details()
         {
-            
-            
-                var order = await _context.Orders
+            ApplicationUser loggedInUser = await GetCurrentUserAsync();
+
+            var order = await _context.Orders
                 .Include(o => o.PaymentType)
                 .Include(o => o.User)
                 .Include(o => o.OrderProducts)
                 .ThenInclude(OrderProducts => OrderProducts.Product)
-                .FirstOrDefaultAsync(o => o.DateCompleted == null && o.UserId == );
+                .FirstOrDefaultAsync(o => o.DateCompleted == null && o.User == loggedInUser);
 
-            if (order.DateCompleted == null)
-            {
+           
                 if (order == null)
                 {
                     return NotFound();
                 }
-            }
+           
                 return View(order);
             
 
