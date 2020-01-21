@@ -61,6 +61,10 @@ namespace BangazonSite.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,DateCreated,Description,Title,Price,Quantity,UserId,City,ProductImage,LocalDelivery,ProductTypeId,Archived")] Product product)
         {
+            if (User.Identity == null)
+            {
+                return View(null);
+            }
             if (ModelState.IsValid)
             {
                 _context.Add(product);
