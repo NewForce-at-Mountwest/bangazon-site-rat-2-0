@@ -21,5 +21,7 @@ namespace BangazonSite.Data
         public DbSet<ProductType> ProductTypes { get; set; }
         public DbSet<OrderProduct> OrderProducts { get; set; }
 
+
+       
     }
 }
