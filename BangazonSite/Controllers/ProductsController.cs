@@ -7,17 +7,32 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BangazonSite.Data;
 using BangazonSite.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BangazonSite.Controllers
 {
     public class ProductsController : Controller
     {
-        private readonly ApplicationDbContext _context;
+    //    private readonly ApplicationDbContext _context;
 
-        public ProductsController(ApplicationDbContext context)
+    //    public ProductsController(ApplicationDbContext context)
+    //    {
+    //        _context = context;
+    //    }
+
+        private readonly ApplicationDbContext _context;
+        // Private field to store user manager
+        private readonly UserManager<ApplicationUser> _userManager;
+        public ProductsController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
+        // Private method to get current user
+        private Task<ApplicationUser> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
+
+
 
         // GET: Products
         public async Task<IActionResult> Index()
@@ -47,6 +62,7 @@ namespace BangazonSite.Controllers
         }
 
         // GET: Products/Create
+        [Authorize]
         public IActionResult Create()
         {
             ViewData["ProductTypeId"] = new SelectList(_context.ProductTypes, "Id", "Id");
@@ -59,16 +75,19 @@ namespace BangazonSite.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+       
         public async Task<IActionResult> Create([Bind("Id,DateCreated,Description,Title,Price,Quantity,UserId,City,ProductImage,LocalDelivery,ProductTypeId,Archived")] Product product)
         {
+
             if (ModelState.IsValid)
             {
                 _context.Add(product);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Details), new {product.Id});
             }
             ViewData["ProductTypeId"] = new SelectList(_context.ProductTypes, "Id", "Id", product.ProductTypeId);
             ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", product.UserId);
+
             return View(product);
         }
 
