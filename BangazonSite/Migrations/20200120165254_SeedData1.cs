@@ -171,9 +171,9 @@ namespace BangazonSite.Migrations
                 values: new object[,]
                 {
                     { 1, null, new DateTime(2020, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, "00000000-ffff-ffff-ffff-ffffffffffff" },
-                    { 4, null, new DateTime(2020, 1, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, "00000000-ffff-ffff-ffff-ffffffffffff" },
-                    { 2, null, new DateTime(2020, 1, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, "00000000-ffff-ffff-ffff-ffffffffffff" },
-                    { 3, null, new DateTime(2020, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, "00000000-ffff-ffff-ffff-ffffffffffff" }
+                    { 4, new DateTime(2020, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2020, 1, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, "00000000-ffff-ffff-ffff-ffffffffffff" },
+                    { 2, new DateTime(2020, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2020, 1, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, "00000000-ffff-ffff-ffff-ffffffffffff" },
+                    { 3, new DateTime(2020, 1, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2020, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, "00000000-ffff-ffff-ffff-ffffffffffff" }
                 });
 
             migrationBuilder.InsertData(
@@ -182,9 +182,9 @@ namespace BangazonSite.Migrations
                 values: new object[,]
                 {
                     { 1, 1, 1 },
-                    { 4, 4, 4 },
-                    { 2, 2, 2 },
-                    { 3, 3, 3 }
+                    { 4, 1, 4 },
+                    { 2, 1, 2 },
+                    { 3, 1, 3 }
                 });
 
             migrationBuilder.CreateIndex(

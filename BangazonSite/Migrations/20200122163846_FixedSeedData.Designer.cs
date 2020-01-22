@@ -4,14 +4,16 @@ using BangazonSite.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BangazonSite.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200122163846_FixedSeedData")]
+    partial class FixedSeedData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -57,7 +59,6 @@ namespace BangazonSite.Migrations
                         new
                         {
                             Id = 2,
-                            DateCompleted = new DateTime(2020, 1, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DateCreated = new DateTime(2020, 1, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             PaymentTypeId = 2,
                             UserId = "00000000-ffff-ffff-ffff-ffffffffffff"
@@ -65,7 +66,6 @@ namespace BangazonSite.Migrations
                         new
                         {
                             Id = 3,
-                            DateCompleted = new DateTime(2020, 1, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DateCreated = new DateTime(2020, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             PaymentTypeId = 3,
                             UserId = "00000000-ffff-ffff-ffff-ffffffffffff"
@@ -73,7 +73,6 @@ namespace BangazonSite.Migrations
                         new
                         {
                             Id = 4,
-                            DateCompleted = new DateTime(2020, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DateCreated = new DateTime(2020, 1, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             PaymentTypeId = 1,
                             UserId = "00000000-ffff-ffff-ffff-ffffffffffff"
@@ -116,13 +115,13 @@ namespace BangazonSite.Migrations
                         },
                         new
                         {
-                            OrderProductId = 5,
+                            OrderProductId = 3,
                             OrderId = 1,
                             ProductId = 3
                         },
                         new
                         {
-                            OrderProductId = 7,
+                            OrderProductId = 4,
                             OrderId = 1,
                             ProductId = 4
                         });
@@ -305,62 +304,6 @@ namespace BangazonSite.Migrations
                             ProductTypeId = 4,
                             Quantity = 32,
                             Title = "Bear rug",
-                            UserId = "00000000-ffff-ffff-ffff-ffffffffffff"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Archived = false,
-                            City = "Ashland",
-                            DateCreated = new DateTime(2020, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Yeti",
-                            LocalDelivery = false,
-                            Price = 25.0,
-                            ProductTypeId = 3,
-                            Quantity = 50,
-                            Title = "Coffee Cup",
-                            UserId = "00000000-ffff-ffff-ffff-ffffffffffff"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Archived = true,
-                            City = "Huntington",
-                            DateCreated = new DateTime(2020, 1, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Women's Size Small, Winnie the Pooh",
-                            LocalDelivery = false,
-                            Price = 18.0,
-                            ProductTypeId = 1,
-                            Quantity = 25,
-                            Title = "Pajamas",
-                            UserId = "00000000-ffff-ffff-ffff-ffffffffffff"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Archived = false,
-                            City = "Ironton",
-                            DateCreated = new DateTime(2020, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Dell Touch Screen All-In-One",
-                            LocalDelivery = true,
-                            Price = 320.0,
-                            ProductTypeId = 2,
-                            Quantity = 5,
-                            Title = "Computer",
-                            UserId = "00000000-ffff-ffff-ffff-ffffffffffff"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Archived = true,
-                            City = "Argillite",
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Khaki, the Best",
-                            LocalDelivery = true,
-                            Price = 25.0,
-                            ProductTypeId = 4,
-                            Quantity = 36,
-                            Title = "Pants",
                             UserId = "00000000-ffff-ffff-ffff-ffffffffffff"
                         });
                 });
@@ -637,13 +580,13 @@ namespace BangazonSite.Migrations
                         {
                             Id = "00000000-ffff-ffff-ffff-ffffffffffff",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "06e0c1a8-9581-43a5-bb11-1bc0d04f5b9a",
+                            ConcurrencyStamp = "0dc24c07-f0ac-4d10-a189-301bf9df857c",
                             Email = "admin@admin.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEB8uyMVzETQdrFTfzZGN9mSzlGQ0Go+h1qqpK36KRQh/l6S30eXDzLFphRr2zIOVIQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAECVmeKiGNMcq5crZjZFbBfqjmWYR+T3sKG3jXEzGIQstEshvQTX2Tv+gm32f1ZzorQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "7f434309-a4d9-48e9-9ebb-8803db794577",
                             TwoFactorEnabled = false,
