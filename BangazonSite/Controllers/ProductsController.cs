@@ -35,10 +35,24 @@ namespace BangazonSite.Controllers
 
 
         // GET: Products
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchQuery)
         {
-            var applicationDbContext = _context.Products.Include(p => p.ProductType).Include(p => p.User);
-            return View(await applicationDbContext.ToListAsync());
+            ApplicationUser loggedInUser = await GetCurrentUserAsync();
+
+            List<Product> products = await _context.Products.Where(p => p.User == loggedInUser).ToListAsync();
+
+
+            if (searchQuery != null)
+            {
+                products = products.Where(product => product.Title.ToLower().Contains(searchQuery) || product.Description.ToLower().Contains(searchQuery)).ToList();
+            }
+
+            else if (searchQuery != null)
+            {
+                products = products.Where(product => product.City.ToLower().Contains(searchQuery)).ToList();
+    }
+
+            return View(products);
         }
 
         // GET: Products/Details/5

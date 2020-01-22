@@ -22,8 +22,9 @@
                     <partial name="_LoginPartial" />
                     <ul class="navbar-nav flex-grow-1">
                         
-                        <form asp-controller="Products" asp-action="Index" class="form-control">
-                            <input name="searchQuery" placeholder="Search for Students by First or Last Name" />
+                        <form asp-controller="Products" asp-action="Index">
+                            <input name="searchQuery" placeholder="Search for Products" />
+                            <button>Search</button>
                         </form>
 
                         <li class="nav-item">

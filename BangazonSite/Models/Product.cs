@@ -48,7 +48,9 @@ namespace BangazonSite.Models
 
         [Display(Name = "Category")]
         public ProductType ProductType { get; set; }
-        public List<OrderProduct> OrderProducts { get; set; } = new List<OrderProduct>();        
+        public List<OrderProduct> OrderProducts { get; set; } = new List<OrderProduct>();
+
+        // public List<Product> Products { get; set; } = new List<Product>();
         public bool Archived { get; set; }
     }
 }
