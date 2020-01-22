@@ -181,5 +181,23 @@ namespace BangazonSite.Controllers
         {
             return _context.Products.Any(e => e.Id == id);
         }
+
+        // GET: Products/DeleteFromOrder/5
+        public async Task<IActionResult> DeleteFromOrder(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var orderProduct = await _context.OrderProducts.FindAsync(id);
+            _context.OrderProducts.Remove(orderProduct);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Details));
+          
+        }
+
+       
+
     }
 }
