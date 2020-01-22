@@ -21,6 +21,11 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial" />
                     <ul class="navbar-nav flex-grow-1">
+                        
+                        <form asp-controller="Products" asp-action="Index" class="form-control">
+                            <input name="searchQuery" placeholder="Search for Students by First or Last Name" />
+                        </form>
+
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
@@ -33,6 +38,7 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Products" asp-action="Create">Sell Product</a>
                         </li>
+
                     </ul>
                 </div>
             </div>
