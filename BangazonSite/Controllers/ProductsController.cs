@@ -47,10 +47,6 @@ namespace BangazonSite.Controllers
                 products = products.Where(product => product.Title.ToLower().Contains(searchQuery) || product.Description.ToLower().Contains(searchQuery)).ToList();
             }
 
-            else if (searchQuery != null)
-            {
-                products = products.Where(product => product.City.ToLower().Contains(searchQuery)).ToList();
-    }
 
             return View(products);
         }
