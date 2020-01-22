@@ -38,8 +38,9 @@
 
             <dt>
                 |
-                <a asp-action="Details" asp-route-id="@OrderProduct.Product.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@OrderProduct.Product.Id">Delete</a> |
+                <a asp-controller="Products" asp-action="Details" asp-route-id="@OrderProduct.Product.Id">Details</a> |
+                <a asp-controller="Products" asp-action="DeleteFromOrder" asp-route-id="@OrderProduct.OrderProductId">Delete</a> | 
+                @*Write a method in Products to remove the product from ORderProduct instead of actually deleting it.*@
             </dt>
             <br />
         }
@@ -47,6 +48,6 @@
     </div>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+   |
+    <a asp-action="Details">Back to List</a>
 </div>
