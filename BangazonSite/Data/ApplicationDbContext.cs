@@ -65,7 +65,7 @@ namespace BangazonSite.Data
                     PaymentTypeId = 2,
                     UserId = "00000000-ffff-ffff-ffff-ffffffffffff",
                     DateCreated = new DateTime(2020, 01, 02),
-                    DateCompleted = null
+                    DateCompleted = new DateTime(2020, 01, 04)
                 },
                  new Order()
                  {
@@ -73,7 +73,7 @@ namespace BangazonSite.Data
                      PaymentTypeId = 3,
                      UserId = "00000000-ffff-ffff-ffff-ffffffffffff",
                      DateCreated = new DateTime(2020, 01, 03),
-                     DateCompleted = null
+                     DateCompleted = new DateTime(2020, 01, 04)
                  },
                 new Order()
                 {
@@ -81,7 +81,7 @@ namespace BangazonSite.Data
                     PaymentTypeId = 1,
                     UserId = "00000000-ffff-ffff-ffff-ffffffffffff",
                     DateCreated = new DateTime(2020, 01, 04),
-                    DateCompleted = null
+                    DateCompleted = new DateTime(2020, 01, 05)
                 }
                 );
 
@@ -96,19 +96,19 @@ namespace BangazonSite.Data
                 new OrderProduct()
                 {
                     OrderProductId = 2,
-                    OrderId = 2,
+                    OrderId = 1,
                     ProductId = 2
                 },
                  new OrderProduct()
                  {
-                     OrderProductId = 3,
-                     OrderId = 3,
+                     OrderProductId = 5,
+                     OrderId = 1,
                      ProductId = 3
                  },
                 new OrderProduct()
                 {
-                    OrderProductId = 4,
-                    OrderId = 4,
+                    OrderProductId = 7,
+                    OrderId = 1,
                     ProductId = 4
                 }
             );
@@ -210,6 +210,62 @@ namespace BangazonSite.Data
                     LocalDelivery = false,
                     City = "Argillite",
                     Archived = false
+                },
+                new Product()
+                {
+                    Id = 9,
+                    ProductTypeId = 3,
+                    UserId = "00000000-ffff-ffff-ffff-ffffffffffff",
+                    DateCreated = new DateTime(2020, 01, 01),
+                    Description = "Yeti",
+                    Title = "Coffee Cup",
+                    Quantity = 50,
+                    Price = 25.00,
+                    LocalDelivery = false,
+                    City = "Ashland",
+                    Archived = false
+                },
+                new Product()
+                {
+                    Id = 6,
+                    ProductTypeId = 1,
+                    UserId = "00000000-ffff-ffff-ffff-ffffffffffff",
+                    Description = "Women's Size Small, Winnie the Pooh",
+                    DateCreated = new DateTime(2020, 01, 02),
+                    Title = "Pajamas",
+                    Quantity = 25,
+                    Price = 18.00,
+                    LocalDelivery = false,
+                    City = "Huntington",
+                    Archived = true
+                },
+                 new Product()
+                 {
+                     Id = 7,
+                     DateCreated = new DateTime(2020, 01, 03),
+                     ProductTypeId = 2,
+                     UserId = "00000000-ffff-ffff-ffff-ffffffffffff",
+                     Description = "Dell Touch Screen All-In-One",
+                     Title = "Computer",
+                     Quantity = 5,
+                     Price = 320.00,
+                     LocalDelivery = true,
+                     City = "Ironton",
+                     Archived = false
+                 },
+                new Product()
+                {
+                    Id = 8,
+                    DateCreated = new DateTime(),
+                    ProductTypeId = 4,
+                    UserId = "00000000-ffff-ffff-ffff-ffffffffffff",
+                    Description = "Khaki, the Best",
+                    Title = "Pants",
+                    Quantity = 36,
+                    Price = 25.00,
+                    LocalDelivery = true,
+                    City = "Argillite",
+                    Archived = true
                 }
            );
 
