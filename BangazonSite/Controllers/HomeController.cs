@@ -24,7 +24,8 @@ namespace BangazonSite.Controllers
         // GET: Products
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = await _context.Products.Include(p => p.ProductType).Include(p => p.User).OrderByDescending(p => p.Id).Take(20).ToListAsync();
+            var applicationDbContext = await _context.Products.Include(p => p.ProductType).Include(p => p.User)
+                .OrderByDescending(p => p.Id).Take(20).ToListAsync();
             var currentProducts = applicationDbContext.Where(p => !p.Archived);
             return View(currentProducts);
         }
