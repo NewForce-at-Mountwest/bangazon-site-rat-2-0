@@ -28,15 +28,15 @@ namespace BangazonSite.Controllers
         // GET: Products
         public async Task<IActionResult> Index(string searchQueryOne)
         {
-        
-            
+
+
                 ApplicationUser loggedInUser = await GetCurrentUserAsync();
 
                 List<Product> products = await _context.Products.Where(p => p.User == loggedInUser).ToListAsync();
 
 
-          
-            // Search by city Serchbar not functional 
+
+            // Search by city Serchbar not functional
 
             //    if (searchQueryOne != null)
             //{
@@ -46,7 +46,7 @@ namespace BangazonSite.Controllers
 
 
             return View(products);
-            
+
 
         }
 
