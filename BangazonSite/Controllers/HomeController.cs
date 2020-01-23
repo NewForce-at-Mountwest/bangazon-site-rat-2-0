@@ -36,12 +36,13 @@ namespace BangazonSite.Controllers
 
 
           
+            // Search by city Serchbar not functional 
 
-                if (searchQueryOne != null)
-            {
+            //    if (searchQueryOne != null)
+            //{
 
-               products = products.Where(product => product.City.ToLower().Contains(searchQueryOne)).ToList();
-            }
+            //   products = products.Where(product => product.City.ToLower().Contains(searchQueryOne)).ToList();
+            //}
 
 
             return View(products);
