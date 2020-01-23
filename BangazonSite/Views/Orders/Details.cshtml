@@ -25,25 +25,20 @@
     <div>
         @foreach (var OrderProduct in Model.OrderProducts)
         {
-        
-            <dt>
-                @Html.DisplayFor(modelItem => OrderProduct.Product.Title) --
-            </dt>
-            <dd>
-                ( @Html.DisplayFor(modelItem => OrderProduct.Product.Description) )
-            </dd>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">@Html.DisplayFor(modelItem => OrderProduct.Product.Title)</h5>
+                    <p class="card-text">@Html.DisplayFor(modelItem => OrderProduct.Product.Description)</p>
+                    <dt>
+                        |
+                        <a asp-controller="Products" asp-action="Details" asp-route-id="@OrderProduct.Product.Id">Details</a> |
+                        <a asp-controller="Products" asp-action="DeleteFromOrder" asp-route-id="@OrderProduct.OrderProductId">Delete</a>
+                        |
+                    </dt>
+                </div>
+            </div>
 
-            <dt>
-                |
-                <a asp-controller="Products" asp-action="Details" asp-route-id="@OrderProduct.Product.Id">Details</a> |
-                <a asp-controller="Products" asp-action="DeleteFromOrder" asp-route-id="@OrderProduct.OrderProductId">Delete</a> 
-            </dt>
-            <br />
         }
 
     </div>
-</div>
-<div>
-   |
-    <a asp-action="Details">Back to List</a>
 </div>
