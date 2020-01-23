@@ -14,13 +14,6 @@ namespace BangazonSite.Controllers
 {
     public class HomeController : Controller
     {
-
-        //private readonly ApplicationDbContext _context;
-
-        //public HomeController(ApplicationDbContext context)
-        //{
-        //    _context = context;
-        //}
         private readonly ApplicationDbContext _context;
         // Private field to store user manager
         private readonly UserManager<ApplicationUser> _userManager;
@@ -42,13 +35,16 @@ namespace BangazonSite.Controllers
                 List<Product> products = await _context.Products.Where(p => p.User == loggedInUser).ToListAsync();
 
 
+          
+
                 if (searchQueryOne != null)
-                {
-                    products = products.Where(product => product.City.ToLower().Contains(searchQueryOne)).ToList();
-                }
+            {
+
+               products = products.Where(product => product.City.ToLower().Contains(searchQueryOne)).ToList();
+            }
 
 
-                return View(products);
+            return View(products);
             
 
         }
