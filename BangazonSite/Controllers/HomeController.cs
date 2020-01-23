@@ -8,26 +8,46 @@ using Microsoft.Extensions.Logging;
 using BangazonSite.Models;
 using BangazonSite.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace BangazonSite.Controllers
 {
     public class HomeController : Controller
     {
-
         private readonly ApplicationDbContext _context;
-
-        public HomeController(ApplicationDbContext context)
+        // Private field to store user manager
+        private readonly UserManager<ApplicationUser> _userManager;
+        public HomeController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
+        // Private method to get current user
+        private Task<ApplicationUser> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
 
         // GET: Products
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchQueryOne)
         {
-            var applicationDbContext = await _context.Products.Include(p => p.ProductType).Include(p => p.User)
-                .OrderByDescending(p => p.Id).Take(20).ToListAsync();
-            var currentProducts = applicationDbContext.Where(p => !p.Archived);
-            return View(currentProducts);
+
+
+                ApplicationUser loggedInUser = await GetCurrentUserAsync();
+
+                List<Product> products = await _context.Products.Where(p => p.User == loggedInUser).ToListAsync();
+
+
+
+            // Search by city Serchbar not functional
+
+            //    if (searchQueryOne != null)
+            //{
+
+            //   products = products.Where(product => product.City.ToLower().Contains(searchQueryOne)).ToList();
+            //}
+
+
+            return View(products);
+
+
         }
 
         // GET: Products/Details/5
